@@ -13,7 +13,7 @@ const linkClass =
 export default function DsatSchoolPage() {
   return (
     <main className="fade-in min-h-dvh font-mono text-[17px] leading-[1.75] text-muted">
-      <div className="max-w-3xl px-8 py-24 sm:px-12 sm:py-32 md:pl-24 lg:max-w-5xl lg:pl-32 xl:max-w-6xl">
+      <div className="mx-auto max-w-[76rem] px-8 py-24 sm:px-12 sm:py-32">
         <a href="/" className={`text-faint ${linkClass}`}>
           ← shagato
         </a>
