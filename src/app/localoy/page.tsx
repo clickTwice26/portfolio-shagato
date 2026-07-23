@@ -49,6 +49,7 @@ export default function LocaloyPage() {
                         <SiteFrame
                           href={project.embed}
                           title={`${project.name} — site`}
+                          frameable={project.frameable}
                         />
                       </div>
                     )}

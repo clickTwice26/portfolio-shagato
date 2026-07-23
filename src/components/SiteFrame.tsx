@@ -4,9 +4,12 @@ import { ScaledSite } from "./ScaledSite";
 export function SiteFrame({
   href,
   title,
+  frameable = true,
 }: {
   href: string;
   title: string;
+  /** false when the site sends X-Frame-Options / CSP frame-ancestors. */
+  frameable?: boolean;
 }) {
   const domain = new URL(href).host.replace(/^www\./, "");
 
@@ -28,7 +31,23 @@ export function SiteFrame({
         </a>
       </div>
       <div className="aspect-[16/10] bg-bg">
-        <ScaledSite src={href} title={title} />
+        {frameable ? (
+          <ScaledSite src={href} title={title} />
+        ) : (
+          <div className="flex h-full flex-col items-center justify-center gap-2 px-6 text-center">
+            <p className="text-[13px] leading-relaxed text-faint">
+              Sign-in only — this app blocks embedding.
+            </p>
+            <a
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[13px] text-ink underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent"
+            >
+              open {domain} ↗
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );
