@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { localoy } from "@/lib/content";
+import { SiteFrame } from "@/components/SiteFrame";
 
 export const metadata: Metadata = {
   title: localoy.name,
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const linkClass =
-  "underline decoration-1 underline-offset-[3px] decoration-line transition-colors hover:text-accent hover:decoration-accent";
+  "underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent";
 
 export default function LocaloyPage() {
   return (
@@ -42,6 +43,15 @@ export default function LocaloyPage() {
                       <p className="text-ink">{project.desc}</p>
                       <p className="mt-2 text-pretty">{project.detail}</p>
                     </div>
+
+                    {project.embed && (
+                      <div className="mt-4 lg:mt-0 lg:w-[340px] lg:shrink-0">
+                        <SiteFrame
+                          href={project.embed}
+                          title={`${project.name} — site`}
+                        />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

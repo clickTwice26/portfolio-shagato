@@ -2,6 +2,13 @@ import Image from "next/image";
 import { site, projects, socials } from "@/lib/content";
 import { Clock } from "@/components/Clock";
 import { GithubStats } from "@/components/GithubStats";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
+import type { ComponentType, SVGProps } from "react";
+
+const socialIcons: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+  GitHub: GitHubIcon,
+  LinkedIn: LinkedInIcon,
+};
 
 const city = site.location.split(",")[0];
 const githubUsername = socials
@@ -9,7 +16,7 @@ const githubUsername = socials
   ?.handle.replace("@", "");
 
 const linkClass =
-  "underline decoration-1 underline-offset-[3px] decoration-line transition-colors hover:text-accent hover:decoration-accent";
+  "underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent";
 
 export default function Home() {
   return (
@@ -49,8 +56,9 @@ export default function Home() {
 
           <section className="mt-12">
             <p className="text-faint">elsewhere</p>
-            <ul className="mt-2">
-              <li>
+            <ul className="mt-2 space-y-1">
+              <li className="flex items-center gap-3">
+                <MailIcon className="h-4 w-4 shrink-0 text-faint" />
                 <a
                   href={`mailto:${site.email}`}
                   className={`text-ink ${linkClass}`}
@@ -58,19 +66,25 @@ export default function Home() {
                   {site.email}
                 </a>
               </li>
-              {socials.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`text-ink ${linkClass}`}
-                  >
-                    {s.label}
-                  </a>{" "}
-                  {s.handle}
-                </li>
-              ))}
+              {socials.map((s) => {
+                const Icon = socialIcons[s.label];
+                return (
+                  <li key={s.label} className="flex items-center gap-3">
+                    {Icon && <Icon className="h-4 w-4 shrink-0 text-faint" />}
+                    <span>
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`text-ink ${linkClass}`}
+                      >
+                        {s.label}
+                      </a>{" "}
+                      {s.handle}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </section>
 

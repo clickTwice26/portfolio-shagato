@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const linkClass =
-  "underline decoration-1 underline-offset-[3px] decoration-line transition-colors hover:text-accent hover:decoration-accent";
+  "underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent";
 
 export default function DsatSchoolPage() {
   return (

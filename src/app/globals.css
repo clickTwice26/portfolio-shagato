@@ -1,13 +1,29 @@
 @import "tailwindcss";
 
-/* Real paper — one committed palette, no dark mode. */
+/* ─────────────────────────────────────────────────────────────
+   Design system — "paper"
+
+   One committed light palette, no dark mode. Every text colour is
+   measured against --bg, and none of them fall under the WCAG AA
+   threshold of 4.5:1 — ink and muted clear AAA (7:1).
+
+     ink     16.6:1   headings, links, anything that must be read
+     muted    8.4:1   body copy — the default
+     faint    4.8:1   labels, tags, timestamps — never body copy
+     accent   5.2:1   one colour, used sparingly
+     line       —     hairlines only, never text
+
+   Type: a single monospace family. Hierarchy comes from size and
+   colour, never weight — 17px body, 14px meta. Leading stays loose
+   (1.75) because monospace needs the air to read as prose.
+   ───────────────────────────────────────────────────────────── */
 :root {
-  --bg: #f3f0e7;
-  --ink: #1c1a15;
-  --muted: #6c675c;
-  --faint: #a9a394;
-  --line: #ddd8cb;
-  --accent: #cf3b22;
+  --bg: #f4f1e9;
+  --ink: #14120d;
+  --muted: #4a453c;
+  --faint: #6f6a5e;
+  --line: #d8d2c4;
+  --accent: #b8341c;
   color-scheme: light;
 }
 
@@ -31,7 +47,7 @@ body {
   background-color: var(--color-bg);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 120% 90% at 50% -10%, rgba(28, 26, 21, 0.035), transparent 60%);
+    radial-gradient(ellipse 120% 90% at 50% -10%, rgba(20, 18, 13, 0.035), transparent 60%);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

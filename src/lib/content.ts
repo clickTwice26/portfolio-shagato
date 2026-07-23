@@ -150,6 +150,8 @@ export type LocaloyProject = {
   tag: string; // short stack / role label
   desc: string; // one-liner
   detail: string; // paragraph
+  /** Live site to preview alongside the entry. */
+  embed?: string;
 };
 
 export type LocaloyGroup = {
@@ -173,6 +175,7 @@ export const localoy: {
         {
           name: "Localoy App",
           tag: "for people in Dhaka",
+          embed: "https://www.localoy.app/",
           desc: "Finding something to do, without the group-chat archaeology.",
           detail:
             "Most people find events and places the same way — scrolling Facebook groups, asking friends, hearing about it a week after it happened. This puts events, dining and activities in one place, and makes looking through them feel like flipping cards rather than reading a directory: swipe, save the ones worth a second look, come back later. You tell it your area, your interests and where you study, so it stops offering you things across the city you were never going to. There’s a tab for what’s near you right now, a list of everything you’ve saved, and a club section that rewards actually turning up.",

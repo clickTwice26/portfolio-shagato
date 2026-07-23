@@ -39,7 +39,7 @@ export function ProductMock({ product }: { product: DsatProduct }) {
               href={product.href}
               target="_blank"
               rel="noreferrer"
-              className="text-[13px] text-ink underline decoration-1 underline-offset-[3px] decoration-line transition-colors hover:text-accent hover:decoration-accent"
+              className="text-[13px] text-ink underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent"
             >
               open {product.domain} ↗
             </a>
