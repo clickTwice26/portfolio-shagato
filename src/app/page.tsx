@@ -14,8 +14,8 @@ const linkClass =
 export default function Home() {
   return (
     <main className="fade-in min-h-dvh font-mono text-[17px] leading-[1.75] text-muted">
-      <div className="mx-auto flex max-w-[88rem] flex-col lg:flex-row lg:items-start lg:gap-8 xl:gap-16">
-        <div className="max-w-2xl px-8 py-24 sm:px-12 sm:py-32 md:pl-24 lg:pl-32">
+      <div className="mx-auto flex max-w-[76rem] flex-col px-8 py-24 sm:px-12 sm:py-32 lg:flex-row lg:items-start lg:justify-between lg:gap-16 lg:px-12">
+        <div className="max-w-2xl lg:flex-1">
           <h1 className="text-2xl text-ink sm:text-3xl">{site.fullName}</h1>
           <p>
             Software engineer · {city}
@@ -79,7 +79,7 @@ export default function Home() {
           </footer>
         </div>
 
-        <aside className="hidden shrink-0 flex-col gap-8 pr-12 pt-24 lg:sticky lg:top-16 lg:flex lg:w-[380px] lg:self-start sm:pt-32">
+        <aside className="hidden shrink-0 flex-col gap-8 lg:sticky lg:top-24 lg:flex lg:w-[380px] lg:self-start">
           <Image
             src="/portfolio-removebg-preview.png"
             alt="Illustrated portrait of Shagato working on a laptop"
