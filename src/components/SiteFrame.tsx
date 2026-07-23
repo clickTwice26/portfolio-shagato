@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { ScaledSite } from "./ScaledSite";
 
 /** A live site preview in browser chrome, rendered at desktop and scaled down. */
@@ -5,11 +6,14 @@ export function SiteFrame({
   href,
   title,
   frameable = true,
+  children,
 }: {
   href: string;
   title: string;
   /** false when the site sends X-Frame-Options / CSP frame-ancestors. */
   frameable?: boolean;
+  /** Stand-in preview, used when the real site refuses to be framed. */
+  children?: ReactNode;
 }) {
   const domain = new URL(href).host.replace(/^www\./, "");
 
@@ -31,7 +35,9 @@ export function SiteFrame({
         </a>
       </div>
       <div className="aspect-[16/10] bg-bg">
-        {frameable ? (
+        {children ? (
+          children
+        ) : frameable ? (
           <ScaledSite src={href} title={title} />
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-2 px-6 text-center">

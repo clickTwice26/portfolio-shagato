@@ -157,6 +157,8 @@ export type LocaloyProject = {
    * cannot be embedded — we show a fallback card instead of a dead iframe.
    */
   frameable?: boolean;
+  /** Static stand-in to render when the real site can't be framed. */
+  mock?: "partner-portal";
 };
 
 export type LocaloyGroup = {
@@ -190,6 +192,7 @@ export const localoy: {
           tag: "for business owners",
           embed: "https://partner.localoy.app/",
           frameable: false, // X-Frame-Options: DENY
+          mock: "partner-portal",
           desc: "Somewhere to put what you offer, and keep it true.",
           detail:
             "A café changing its menu, a gym adding a class, an organiser announcing a night — all of that used to mean messaging someone and hoping the listing got updated. Here the business does it directly: post an event, list activities, publish a menu or a product, correct a price, take something down once it’s over. What people see is what the owner last typed.",
