@@ -165,70 +165,70 @@ export const localoy: {
 } = {
   name: "Localoy",
   tagline:
-    "A local-experiences platform for Dhaka — a consumer app, a partner portal, and the services running underneath.",
+    "Dhaka is full of things to do and no good way to find them. Localoy is the attempt at fixing that — for the people looking, and for the places worth finding.",
   groups: [
     {
       label: "apps",
       projects: [
         {
           name: "Localoy App",
-          tag: "Flutter · consumer",
-          desc: "The consumer app.",
+          tag: "for people in Dhaka",
+          desc: "Finding something to do, without the group-chat archaeology.",
           detail:
-            "A Flutter app for discovering and saving local experiences around Dhaka — Tinder-style swiping through events, dining and activities, onboarding by area, interests and institution, plus nearby (“loco”), saved, and club/rewards tabs. Feature-first architecture with Riverpod (code-gen) and Freezed, GoRouter and Dio; phone-OTP auth with tokens in encrypted secure storage. Ships to iOS, Android, Web (Firebase) and macOS through GitHub Actions + Fastlane. 140+ commits since September 2025.",
+            "Most people find events and places the same way — scrolling Facebook groups, asking friends, hearing about it a week after it happened. This puts events, dining and activities in one place, and makes looking through them feel like flipping cards rather than reading a directory: swipe, save the ones worth a second look, come back later. You tell it your area, your interests and where you study, so it stops offering you things across the city you were never going to. There’s a tab for what’s near you right now, a list of everything you’ve saved, and a club section that rewards actually turning up.",
         },
         {
           name: "Partner Portal",
-          tag: "Next.js · web",
-          desc: "Where businesses run their listings.",
+          tag: "for business owners",
+          desc: "Somewhere to put what you offer, and keep it true.",
           detail:
-            "The web app partners use to manage their offerings — events, activities, dining, experiences and products. Next.js 16 on the App Router with Turbopack, Tailwind 4, shadcn/ui and Radix primitives, and Zustand for state. 300+ commits since March 2026.",
+            "A café changing its menu, a gym adding a class, an organiser announcing a night — all of that used to mean messaging someone and hoping the listing got updated. Here the business does it directly: post an event, list activities, publish a menu or a product, correct a price, take something down once it’s over. What people see is what the owner last typed.",
         },
         {
           name: "Admin Portal",
-          tag: "React · internal",
-          desc: "The internal staff dashboard.",
+          tag: "for the Localoy team",
+          desc: "Keeping the platform worth opening.",
           detail:
-            "The tool Localoy staff use to run the platform — partner and staff management, experience moderation, drag-to-reorder campaigns and banners, and a 30-day growth chart. Includes partner impersonation: an admin mints a short-lived token and drops straight into a partner's portal. React 19 + Vite 8, React Router, Recharts, plain CSS.",
+            "Someone has to bring new partners on, look at what’s being published, and decide what earns the front page. That’s this — adding partners and staff, reviewing listings, dragging the promoted banners into the order people will actually see, and watching whether the whole thing is growing week to week. Support can also step into a partner’s account and see their screen exactly as they see it, which turns “it’s broken on my side” into a thirty-second conversation.",
         },
       ],
     },
     {
-      label: "services",
+      label: "behind the scenes",
       projects: [
         {
           name: "Partner Backend",
-          tag: "Express · Prisma",
-          desc: "The core API.",
+          tag: "one shared source",
+          desc: "Everything agreeing on the same facts.",
           detail:
-            "The REST API behind both portals and the data source for the mobile app. Express 4 + Prisma 6 on PostgreSQL, JWT auth, Helmet, and Swagger docs. It models the whole experience domain — Activity, Dining and Store configs each own their items with cascade deletes and one config per partner. 280+ commits since April 2026.",
+            "The app, the partner portal and the admin tool all read and write the same information, so a menu edited in the morning is the menu the app shows at lunch — nobody re-types anything anywhere. It also holds the rules for what a listing is allowed to be, which is what stops a partner ending up with two half-finished versions of the same restaurant.",
         },
         {
           name: "Auth Prime",
-          tag: "FastAPI · auth",
-          desc: "Consumer OTP auth.",
+          tag: "signing in",
+          desc: "A phone number instead of a password.",
           detail:
-            "The consumer auth service — Bangladesh phone-number OTP login and JWT issuance for the mobile app, on its own PostgreSQL + Redis. Async SQLAlchemy + Alembic, one-time session keys and 5-minute OTP windows in Redis, SMS through SMS.net.bd, and OTPs mirrored to Discord in non-prod so you can sign in without a real SIM. 60-minute access / 30-day refresh tokens.",
+            "Nobody wants another account to remember. You put in your number, a code arrives by SMS, and you’re in — and you stay in, so opening the app doesn’t start with a login screen every single time.",
         },
         {
           name: "Notify",
-          tag: "FastAPI · notifications",
-          desc: "Cross-app notification broker.",
+          tag: "staying in touch",
+          desc: "Telling people the things worth telling them.",
           detail:
-            "One service that takes an event from any Localoy backend and fans it out to a user across every channel they have — in-app centre, mobile push (FCM), web push (VAPID), and email/SMS fallback. FastAPI with a Redis-Streams work queue, a worker pool with a retry scheduler and reaper, and a PostgreSQL system of record, so a notification is a durable record rather than an ephemeral job. mypy --strict clean, 169 tests.",
+            "A saved event is tomorrow, someone replied, something opened near you. Those have to actually reach a person, so they arrive in a notification centre inside the app, as a push on a phone, as a push in a browser, or as an email or SMS when nothing else will land. People pick what they want to hear about, which is the whole difference between useful and noise.",
         },
         {
           name: "AI Proxy",
-          tag: "FastAPI · AI queue",
-          desc: "Queue-backed LLM broker.",
+          tag: "internal tooling",
+          desc: "Taking the slow, repetitive work off the team.",
           detail:
-            "A broker for the admin tool's LLM calls. Because a model call can take 5–120s — longer than a browser or reverse proxy will hold a connection — callers POST a request, get a job id back immediately (202), and poll until the answer lands. It holds every provider key (Anthropic, OpenAI, Gemini), so no caller ever touches a vendor key. A Redis Stream + consumer group gives crash recovery for free via XAUTOCLAIM, with exponential backoff and jitter on retries. Redis-only, no database.",
+            "Writing listing copy and tidying up submissions is the dull half of running a platform, so the internal tools hand it to an AI instead. That work is slow enough that sitting and watching it would waste someone’s afternoon, so it gets handed off and comes back when it’s ready while the team carries on with something else.",
         },
       ],
     },
   ],
   also:
-    "Plus an admin API (Express + Prisma, its own database) and localoy-docs, a Quartz static site documenting the whole platform.",
+    "There’s also a separate service behind the admin tools, and an internal handbook the team keeps as they go."
 };
 
 export const socials: { label: string; href: string; handle: string }[] = [
