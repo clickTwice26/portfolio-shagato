@@ -6,12 +6,15 @@ export function SiteFrame({
   href,
   title,
   frameable = true,
+  external = true,
   children,
 }: {
   href: string;
   title: string;
   /** false when the site sends X-Frame-Options / CSP frame-ancestors. */
   frameable?: boolean;
+  /** false for internal-only hosts — the label renders as text, not a link. */
+  external?: boolean;
   /** Stand-in preview, used when the real site refuses to be framed. */
   children?: ReactNode;
 }) {
@@ -25,14 +28,18 @@ export function SiteFrame({
           <span className="h-1.5 w-1.5 rounded-full bg-line" />
           <span className="h-1.5 w-1.5 rounded-full bg-line" />
         </div>
-        <a
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          className="truncate text-[11px] text-faint transition-colors hover:text-accent"
-        >
-          {domain} ↗
-        </a>
+        {external ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="truncate text-[11px] text-faint transition-colors hover:text-accent"
+          >
+            {domain} ↗
+          </a>
+        ) : (
+          <span className="truncate text-[11px] text-faint">{domain}</span>
+        )}
       </div>
       <div className="aspect-[16/10] bg-bg">
         {children ? (

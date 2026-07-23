@@ -158,7 +158,9 @@ export type LocaloyProject = {
    */
   frameable?: boolean;
   /** Static stand-in to render when the real site can't be framed. */
-  mock?: "partner-portal";
+  mock?: "partner-portal" | "admin-portal";
+  /** true when the host is internal-only, so the chrome label isn't a link. */
+  internal?: boolean;
 };
 
 export type LocaloyGroup = {
@@ -200,6 +202,10 @@ export const localoy: {
         {
           name: "Admin Portal",
           tag: "for the Localoy team",
+          embed: "https://admin-portal.caprover-internal.localoy.app/admin/dashboard",
+          frameable: false, // internal-only host
+          internal: true,
+          mock: "admin-portal",
           desc: "Keeping the platform worth opening.",
           detail:
             "Someone has to bring new partners on, look at what’s being published, and decide what earns the front page. That’s this — adding partners and staff, reviewing listings, dragging the promoted banners into the order people will actually see, and watching whether the whole thing is growing week to week. Support can also step into a partner’s account and see their screen exactly as they see it, which turns “it’s broken on my side” into a thirty-second conversation.",

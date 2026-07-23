@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { localoy } from "@/lib/content";
 import { SiteFrame } from "@/components/SiteFrame";
 import { PartnerPortalMock } from "@/components/PartnerPortalMock";
+import { AdminPortalMock } from "@/components/AdminPortalMock";
 
 export const metadata: Metadata = {
   title: localoy.name,
@@ -51,9 +52,12 @@ export default function LocaloyPage() {
                           href={project.embed}
                           title={`${project.name} — site`}
                           frameable={project.frameable}
+                          external={!project.internal}
                         >
                           {project.mock === "partner-portal" ? (
                             <PartnerPortalMock />
+                          ) : project.mock === "admin-portal" ? (
+                            <AdminPortalMock />
                           ) : undefined}
                         </SiteFrame>
                       </div>
