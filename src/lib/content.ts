@@ -43,13 +43,20 @@ export const projects: Project[] = [
   },
   {
     index: "03",
+    title: "TypeTrek",
+    blurb: "Typing contests, live leaderboards.",
+    year: "2025–2026",
+    href: "/typetrek",
+  },
+  {
+    index: "04",
     title: "DIU CPC",
     blurb: "Computer Programming Club of DIU.",
     year: "2026",
     href: "/diu-cpc",
   },
   {
-    index: "04",
+    index: "05",
     title: "DeepHealthLab",
     blurb: "Health research lab.",
     year: "2025",
@@ -158,7 +165,7 @@ export type CaseProject = {
    */
   frameable?: boolean;
   /** Static stand-in to render when the real site can't be framed. */
-  mock?: "partner-portal" | "admin-portal" | "diu-cpc";
+  mock?: "partner-portal" | "admin-portal" | "diu-cpc" | "typetrek";
 };
 
 export type CaseGroup = {
@@ -292,6 +299,67 @@ export const diuCpc: {
   ],
   also:
     "Roles decide who can see what, and an admin can view the site as a given member — which turns “it’s broken for me” into something you can actually look at.",
+};
+
+export const typeTrek: {
+  name: string;
+  tagline: string;
+  groups: CaseGroup[];
+  also: string;
+} = {
+  name: "TypeTrek",
+  tagline:
+    "A typing test is a solo thing until you turn it into a race. TypeTrek is the race — timed contests, a leaderboard that moves while you type, and a season that runs like a sport, built for DIU CPC.",
+  groups: [
+    {
+      label: "the contest",
+      projects: [
+        {
+          name: "TypeTrek Face-Off",
+          tag: "for anyone who wants to race",
+          embed: "https://typetrek.diucpc.app/",
+          frameable: false, // X-Frame-Options: SAMEORIGIN
+          mock: "typetrek",
+          desc: "A typing test, turned into a sport.",
+          detail:
+            "Typing faster is more fun when someone's watching the same clock. This is the front of it — join a contest and type the same passage as everyone else while the rankings shuffle live, or take the solo speed test first to see where you stand. It keeps score across seasons, so there's a running story of who was quickest this term and who beat their own best.",
+        },
+      ],
+    },
+    {
+      label: "behind the login",
+      projects: [
+        {
+          name: "The speed test",
+          tag: "the thing you actually do",
+          desc: "Where the words meet the keyboard.",
+          detail:
+            "The part you sit down to. Pick a mode — a countdown, a fixed number of words, a quote, or your own text — and start typing; letters go green as you land them and red when you miss, and your speed and accuracy tick upward in front of you. Turn punctuation and numbers on when you want it harder. No account needed to try it.",
+        },
+        {
+          name: "Contests & seasons",
+          tag: "for the club",
+          desc: "The part that makes it a competition.",
+          detail:
+            "A contest is the same passage, the same timer, and a board that reorders itself as people finish — a handful of levels to climb, friends to challenge, and a rank that updates the instant a result lands. DIU CPC runs it in seasons: weekly matches, a Face-Off final, and a storyboard afterwards that keeps the champions and the record runs on the wall.",
+        },
+      ],
+    },
+    {
+      label: "behind the scenes",
+      projects: [
+        {
+          name: "One backend",
+          tag: "one shared service",
+          desc: "Counting the keystrokes.",
+          detail:
+            "Every finished test is a result the server keeps — the words, the time, the mistakes — so the leaderboards and the personal graphs are reading real history instead of guessing. It handles signing in, saves each run, and holds the rankings in a fast cache so the board can reorder the moment someone crosses the line.",
+        },
+      ],
+    },
+  ],
+  also:
+    "The number on screen is the point: every run is saved against your name, so today's speed becomes a line you can watch climb over weeks — your best, your accuracy, your streak.",
 };
 
 export const deepHealth: {
