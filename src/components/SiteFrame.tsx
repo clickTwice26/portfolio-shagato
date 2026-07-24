@@ -1,24 +1,26 @@
 import type { ReactNode } from "react";
 import { ScaledSite } from "./ScaledSite";
 
-/** A live site preview in browser chrome, rendered at desktop and scaled down. */
+/**
+ * A site preview in browser chrome, rendered at desktop and scaled down.
+ *
+ * `href` is optional — internal tools have no public address worth printing,
+ * so they render the chrome without an address bar.
+ */
 export function SiteFrame({
   href,
   title,
   frameable = true,
-  external = true,
   children,
 }: {
-  href: string;
+  href?: string;
   title: string;
   /** false when the site sends X-Frame-Options / CSP frame-ancestors. */
   frameable?: boolean;
-  /** false for internal-only hosts — the label renders as text, not a link. */
-  external?: boolean;
-  /** Stand-in preview, used when the real site refuses to be framed. */
+  /** Stand-in preview, used when the real site can't be framed. */
   children?: ReactNode;
 }) {
-  const domain = new URL(href).host.replace(/^www\./, "");
+  const domain = href ? new URL(href).host.replace(/^www\./, "") : null;
 
   return (
     <div className="overflow-hidden rounded-sm border border-line bg-bg">
@@ -28,7 +30,7 @@ export function SiteFrame({
           <span className="h-1.5 w-1.5 rounded-full bg-line" />
           <span className="h-1.5 w-1.5 rounded-full bg-line" />
         </div>
-        {external ? (
+        {href && domain && (
           <a
             href={href}
             target="_blank"
@@ -37,28 +39,28 @@ export function SiteFrame({
           >
             {domain} ↗
           </a>
-        ) : (
-          <span className="truncate text-[11px] text-faint">{domain}</span>
         )}
       </div>
       <div className="aspect-[16/10] bg-bg">
         {children ? (
           children
-        ) : frameable ? (
+        ) : href && frameable ? (
           <ScaledSite src={href} title={title} />
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-2 px-6 text-center">
             <p className="text-[13px] leading-relaxed text-faint">
               Sign-in only — this app blocks embedding.
             </p>
-            <a
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              className="text-[13px] text-ink underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent"
-            >
-              open {domain} ↗
-            </a>
+            {href && domain && (
+              <a
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[13px] text-ink underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent"
+              >
+                open {domain} ↗
+              </a>
+            )}
           </div>
         )}
       </div>

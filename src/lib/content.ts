@@ -159,8 +159,6 @@ export type LocaloyProject = {
   frameable?: boolean;
   /** Static stand-in to render when the real site can't be framed. */
   mock?: "partner-portal" | "admin-portal";
-  /** true when the host is internal-only, so the chrome label isn't a link. */
-  internal?: boolean;
 };
 
 export type LocaloyGroup = {
@@ -202,9 +200,6 @@ export const localoy: {
         {
           name: "Admin Portal",
           tag: "for the Localoy team",
-          embed: "https://admin-portal.caprover-internal.localoy.app/admin/dashboard",
-          frameable: false, // internal-only host
-          internal: true,
           mock: "admin-portal",
           desc: "Keeping the platform worth opening.",
           detail:

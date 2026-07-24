@@ -46,13 +46,12 @@ export default function LocaloyPage() {
                       <p className="mt-2 text-pretty">{project.detail}</p>
                     </div>
 
-                    {project.embed && (
+                    {(project.embed || project.mock) && (
                       <div className="mt-4 lg:mt-0 lg:w-[340px] lg:shrink-0">
                         <SiteFrame
                           href={project.embed}
                           title={`${project.name} — site`}
                           frameable={project.frameable}
-                          external={!project.internal}
                         >
                           {project.mock === "partner-portal" ? (
                             <PartnerPortalMock />
