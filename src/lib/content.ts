@@ -53,7 +53,7 @@ export const projects: Project[] = [
     title: "DeepHealthLab",
     blurb: "Health research lab.",
     year: "2025",
-    href: "#",
+    href: "/deep-health-lab",
   },
 ];
 
@@ -292,6 +292,65 @@ export const diuCpc: {
   ],
   also:
     "Roles decide who can see what, and an admin can view the site as a given member — which turns “it’s broken for me” into something you can actually look at.",
+};
+
+export const deepHealth: {
+  name: string;
+  tagline: string;
+  groups: CaseGroup[];
+  also: string;
+} = {
+  name: "DeepHealth Research Lab",
+  tagline:
+    "A medical-AI research group needs a public face for its work and a private place to do it. DeepHealth is both — the site the world sees, and the workspace the researchers actually use.",
+  groups: [
+    {
+      label: "the site",
+      projects: [
+        {
+          name: "Public site",
+          tag: "for anyone",
+          embed: "https://deephealthlab.com/",
+          desc: "The front of the lab.",
+          detail:
+            "A research group is only as visible as its website. This is where the lab explains what it works on, shows the projects in progress and the papers already out, introduces the people behind them, and lists the roles it's hiring for. A blog and a news feed cover the in-between work, and anyone can subscribe to a newsletter instead of remembering to check back.",
+        },
+      ],
+    },
+    {
+      label: "behind the login",
+      projects: [
+        {
+          name: "The workspace",
+          tag: "for the researchers",
+          desc: "Where the work actually happens.",
+          detail:
+            "Behind the same login is the private half. Research groups keep each team's threads in one place, an experiments log records what was tried and how it went, and publications are drafted and tracked from idea to paper. A shared file store holds the datasets and documents that otherwise live in a dozen inboxes, and a community feed gives the lab somewhere to talk to itself. Everyone's profile doubles as their public researcher page.",
+        },
+        {
+          name: "Running the lab",
+          tag: "for whoever keeps it going",
+          desc: "The half nobody sees.",
+          detail:
+            "Someone keeps the team page current, decides the research areas, writes the posts, sends the newsletter, and reads through job applications. That's this — tools to manage people and what they're allowed to do, publish everything the public site shows, and see who applied to which opening, none of it needing a developer.",
+        },
+      ],
+    },
+    {
+      label: "behind the scenes",
+      projects: [
+        {
+          name: "One backend",
+          tag: "one shared service",
+          desc: "Everything reading from the same place.",
+          detail:
+            "The public site and the private workspace are two faces of one service, so a paper added in the dashboard appears on the site the moment it's saved — nothing is typed twice. It handles signing in, the uploaded files, the emails that go out, a search that reaches across everything, and a quiet record of who changed what, and it's built to keep standing when a lot of people arrive at once.",
+        },
+      ],
+    },
+  ],
+  also:
+    "Roles decide who sees the workspace and who can publish to the public site — a visitor, a lab member, and an admin each get a different door through the same front.",
 };
 
 export const socials: { label: string; href: string; handle: string }[] = [
