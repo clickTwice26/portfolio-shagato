@@ -158,7 +158,7 @@ export type CaseProject = {
    */
   frameable?: boolean;
   /** Static stand-in to render when the real site can't be framed. */
-  mock?: "partner-portal" | "admin-portal";
+  mock?: "partner-portal" | "admin-portal" | "diu-cpc";
 };
 
 export type CaseGroup = {
@@ -263,6 +263,7 @@ export const diuCpc: {
           tag: "for anyone",
           embed: "https://www.diucpc.app/",
           frameable: false, // X-Frame-Options: DENY + frame-ancestors 'none'
+          mock: "diu-cpc",
           desc: "The front of the club.",
           detail:
             "What someone sees before they join — who the club is, and the four wings they could end up in: competitive programming and ICPC training, development and hackathons, mentored research, and the careers wing. Events and seminars each get their own page, past ones leave a gallery behind, and every term’s committee is listed. Joining is a form, an orientation, then picking the wing you want.",

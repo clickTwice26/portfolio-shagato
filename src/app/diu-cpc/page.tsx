@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { diuCpc } from "@/lib/content";
 import { SiteFrame } from "@/components/SiteFrame";
+import { DiuCpcMock } from "@/components/DiuCpcMock";
 
 export const metadata: Metadata = {
   title: diuCpc.name,
@@ -50,7 +51,11 @@ export default function DiuCpcPage() {
                           href={project.embed}
                           title={`${project.name} — site`}
                           frameable={project.frameable}
-                        />
+                        >
+                          {project.mock === "diu-cpc" ? (
+                            <DiuCpcMock />
+                          ) : undefined}
+                        </SiteFrame>
                       </div>
                     )}
                   </div>
