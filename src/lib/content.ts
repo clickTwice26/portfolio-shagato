@@ -341,7 +341,7 @@ export const typeTrek: {
           tag: "for the club",
           desc: "The part that makes it a competition.",
           detail:
-            "A contest is the same passage, the same timer, and a board that reorders itself as people finish — a handful of levels to climb, friends to challenge, and a rank that updates the instant a result lands. DIU CPC runs it in seasons: weekly matches, a Face-Off final, and a storyboard afterwards that keeps the champions and the record runs on the wall.",
+            "A contest is the same passage, the same timer, and a board that reorders itself as people finish — a handful of levels to climb, friends to challenge, and a rank that updates the instant a result lands. DIU CPC runs it in seasons: weekly matches, a Face-Off final, and a storyboard afterwards that keeps the champions and the record runs on the wall. I've been on both ends of it — a two-time champion of the competition, then the one who built this site and ran the next semester's Face-Off on it.",
         },
       ],
     },
