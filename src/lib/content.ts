@@ -46,7 +46,7 @@ export const projects: Project[] = [
     title: "DIU CPC",
     blurb: "Computer Programming Club of DIU.",
     year: "2026",
-    href: "#",
+    href: "/diu-cpc",
   },
   {
     index: "04",
@@ -145,7 +145,7 @@ export const dsatSchool = {
   ] satisfies DsatProduct[],
 } as const;
 
-export type LocaloyProject = {
+export type CaseProject = {
   name: string;
   tag: string; // short stack / role label
   desc: string; // one-liner
@@ -161,15 +161,15 @@ export type LocaloyProject = {
   mock?: "partner-portal" | "admin-portal";
 };
 
-export type LocaloyGroup = {
+export type CaseGroup = {
   label: string;
-  projects: LocaloyProject[];
+  projects: CaseProject[];
 };
 
 export const localoy: {
   name: string;
   tagline: string;
-  groups: LocaloyGroup[];
+  groups: CaseGroup[];
   also: string;
 } = {
   name: "Localoy",
@@ -243,6 +243,54 @@ export const localoy: {
   ],
   also:
     "There’s also a separate service behind the admin tools, and an internal handbook the team keeps as they go."
+};
+
+export const diuCpc: {
+  name: string;
+  tagline: string;
+  groups: CaseGroup[];
+  also: string;
+} = {
+  name: "DIU CPC",
+  tagline:
+    "The Computer Programming Club of Daffodil International University — 1,200 members, four wings, and eighty events a year, all run from one place.",
+  groups: [
+    {
+      label: "the site",
+      projects: [
+        {
+          name: "Public site",
+          tag: "for anyone",
+          embed: "https://www.diucpc.app/",
+          frameable: false, // X-Frame-Options: DENY + frame-ancestors 'none'
+          desc: "The front of the club.",
+          detail:
+            "What someone sees before they join — who the club is, and the four wings they could end up in: competitive programming and ICPC training, development and hackathons, mentored research, and the careers wing. Events and seminars each get their own page, past ones leave a gallery behind, and every term’s committee is listed. Joining is a form, an orientation, then picking the wing you want.",
+        },
+      ],
+    },
+    {
+      label: "behind the login",
+      projects: [
+        {
+          name: "Member dashboard",
+          tag: "for the 1,200",
+          desc: "Everything you signed up for, in one place.",
+          detail:
+            "Courses you’re enrolled in, with their assessments and live classes. A calendar of what’s coming. Tasks to pick up, and a leaderboard for the people who keep picking them up. The certificates you’ve earned, downloadable. And a shop for club merchandise.",
+        },
+        {
+          name: "Committee tools",
+          tag: "for the people running it",
+          desc: "Running a club that size is the real work.",
+          detail:
+            "Publishing events, seminars and announcements. Building courses, grading what gets submitted, and taking attendance for live classes. Handling recruitment intake, curating the gallery, listing merchandise, and rotating the committee every term. Certificates get a template builder, so three hundred of them go out looking right without anyone opening a design tool.",
+        },
+      ],
+    },
+  ],
+  also:
+    "Roles decide who can see what, and an admin can view the site as a given member — which turns “it’s broken for me” into something you can actually look at.",
 };
 
 export const socials: { label: string; href: string; handle: string }[] = [
