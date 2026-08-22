@@ -48,27 +48,34 @@ export const experience: Project[] = [
 export const projects: Project[] = [
   {
     index: "01",
+    title: "RoboJourney",
+    blurb: "Arduino simulator that runs the electricity.",
+    year: "2026",
+    href: "/robo-journey",
+  },
+  {
+    index: "02",
     title: "Cubicle",
     blurb: "Serverless functions on your own metal.",
     year: "2026",
     href: "/cubicle",
   },
   {
-    index: "02",
+    index: "03",
     title: "TypeTrek",
     blurb: "Typing contests, live leaderboards.",
     year: "2025–2026",
     href: "/typetrek",
   },
   {
-    index: "03",
+    index: "04",
     title: "DIU CPC",
     blurb: "Computer Programming Club of DIU.",
     year: "2026",
     href: "/diu-cpc",
   },
   {
-    index: "04",
+    index: "05",
     title: "DeepHealthLab",
     blurb: "Health research lab.",
     year: "2025",
@@ -518,6 +525,101 @@ export const cubicle: {
   ],
   also:
     "Apache-2.0, and built to be handed over: the installer is safe to re-run, secrets are never rotated behind your back, and every screen has a page in the docs.",
+};
+
+export const roboJourney: {
+  name: string;
+  tagline: string;
+  site: string;
+  repo: string;
+  groups: CaseGroup[];
+  also: string;
+} = {
+  name: "RoboJourney",
+  tagline:
+    "Every Arduino simulator will happily light an LED whether or not your circuit could actually light one. This one runs the electricity as well as the code, so it fails the way the bench fails — before you have soldered anything.",
+  site: "https://robojourney.shagato.space",
+  repo: "https://github.com/clickTwice26/robo-journey",
+  groups: [
+    {
+      label: "the idea",
+      projects: [
+        {
+          name: "Try it before you build it",
+          tag: "in the browser",
+          embed: "https://robojourney.shagato.space",
+          shot: "/shots/robojourney-home.png",
+          desc: "Drag parts onto a breadboard, wire them up, press Run.",
+          detail:
+            "Your sketch is compiled by the real arduino-cli and then executed as actual machine code on an emulated ATmega328P — not an approximation of one. So the timing is the chip\u2019s timing, and something that only breaks after four seconds breaks here after four seconds too.",
+        },
+        {
+          name: "Why it exists",
+          tag: "the gap",
+          shot: "/shots/robojourney-compare.png",
+          desc: "The existing tools each solve half the problem.",
+          detail:
+            "One runs the firmware properly but does not simulate the circuit at all. Another approximates the chip. The one that does both is commercial. That gap matters, because a missing resistor, a floating pin or a part browning out the regulator are electrical faults — a logic-level simulator runs that sketch happily and shows you a glowing LED, and the real board gives you a dead pin.",
+        },
+      ],
+    },
+    {
+      label: "what you get",
+      projects: [
+        {
+          name: "It tells you what went wrong",
+          tag: "faults",
+          shot: "/shots/robojourney-faults.png",
+          desc: "The things a real board only reveals after you have built it.",
+          detail:
+            "An LED drawing 78 mA through a pin rated for 40. An analogue input left floating between the two logic thresholds, so what it reads is genuinely undefined. A regulator asked for more voltage than it has, with its output collapsed. Each one is named in plain language, with the numbers that make the case.",
+        },
+        {
+          name: "The rest of the bench",
+          tag: "parts and instruments",
+          shot: "/shots/robojourney-desk.png",
+          desc: "Real parts, and something to measure them with.",
+          detail:
+            "Fifty-one components carrying the numbers off their datasheets, twenty-eight ready-made projects to open and run, and a multimeter, ammeter and oscilloscope to point at them — plus a flame, a magnet and movement, because a sensor you cannot set off is not much of a test. Every part also states plainly what it does not simulate, which is the part most tools leave out.",
+        },
+      ],
+    },
+    {
+      label: "underneath",
+      projects: [
+        {
+          name: "Two simulations, kept in step",
+          tag: "the engine",
+          desc: "A processor and a circuit, solved together.",
+          detail:
+            "The chip is emulated instruction by instruction while a nodal solver works out every voltage and current in the circuit around it, and the two are advanced together on an event-driven loop so each one sees what the other just did. The engine never imports React and never touches the browser — which is what keeps it testable headlessly, and turns a desktop build into packaging rather than a rewrite.",
+        },
+        {
+          name: "Instruments that read the wire",
+          tag: "measurement",
+          desc: "Measuring it, not asking it.",
+          detail:
+            "A scope and a logic analyser plot the real traces, a register inspector shows the chip\u2019s state by name, and there is a disassembler and breakpoints for when the sketch itself is the suspect. The serial decoder is the tell: it reads the bytes back off the voltage on the wire rather than from the peripheral that sent them, so it shows what a probe would have seen.",
+        },
+        {
+          name: "New parts from a datasheet",
+          tag: "extending it",
+          desc: "Components nobody compiled in.",
+          detail:
+            "Paste or upload a datasheet and it becomes a working part — pins, electrical behaviour, timing and limits — checked against physics before it is allowed anywhere near a circuit. Parts are data rather than code, so adding one does not mean touching the simulator.",
+        },
+        {
+          name: "Running it yourself",
+          tag: "self-hosted",
+          desc: "One command, on your own machine or a server.",
+          detail:
+            "Docker locally, or a single bootstrap command on a server that sets up a domain and a certificate that renews itself. The installer looks at what is already running before it changes anything, so it will not quietly take port 443 from a site already using it. 162 tests and 3 benchmarks run green.",
+        },
+      ],
+    },
+  ],
+  also:
+    "Built in the open, and honest about its edges — every part declares what it cannot simulate, on the grounds that a tool hiding its limits is not one you can trust with anything.",
 };
 
 export const socials: { label: string; href: string; handle: string }[] = [
