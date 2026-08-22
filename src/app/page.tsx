@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { site, projects, socials } from "@/lib/content";
+import { site, experience, projects, socials } from "@/lib/content";
 import { Clock } from "@/components/Clock";
 import { GithubStats } from "@/components/GithubStats";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
@@ -35,7 +35,22 @@ export default function Home() {
           </p>
 
           <section className="mt-12">
-            <p className="text-faint">work</p>
+            <p className="text-faint">experience</p>
+            <ul className="mt-2">
+              {experience.map((p) => (
+                <li key={p.index}>
+                  <a href={p.href} className={`text-ink ${linkClass}`}>
+                    {p.title}
+                  </a>
+                  {" — "}
+                  {p.blurb.replace(/\.$/, "")}, {p.year}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mt-12">
+            <p className="text-faint">projects</p>
             <ul className="mt-2">
               {projects.map((p) => (
                 <li key={p.index}>

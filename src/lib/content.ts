@@ -26,7 +26,8 @@ export type Project = {
   href: string;
 };
 
-export const projects: Project[] = [
+/** Paid / ongoing roles. */
+export const experience: Project[] = [
   {
     index: "01",
     title: "DSAT School",
@@ -41,22 +42,33 @@ export const projects: Project[] = [
     year: "2025–2026",
     href: "/localoy",
   },
+];
+
+/** Things built outside a role. */
+export const projects: Project[] = [
   {
-    index: "03",
+    index: "01",
+    title: "Cubicle",
+    blurb: "Serverless functions on your own metal.",
+    year: "2026",
+    href: "/cubicle",
+  },
+  {
+    index: "02",
     title: "TypeTrek",
     blurb: "Typing contests, live leaderboards.",
     year: "2025–2026",
     href: "/typetrek",
   },
   {
-    index: "04",
+    index: "03",
     title: "DIU CPC",
     blurb: "Computer Programming Club of DIU.",
     year: "2026",
     href: "/diu-cpc",
   },
   {
-    index: "05",
+    index: "04",
     title: "DeepHealthLab",
     blurb: "Health research lab.",
     year: "2025",
@@ -166,6 +178,8 @@ export type CaseProject = {
   frameable?: boolean;
   /** Static stand-in to render when the real site can't be framed. */
   mock?: "partner-portal" | "admin-portal" | "diu-cpc" | "typetrek";
+  /** Path to a real screenshot, used when the site blocks framing. */
+  shot?: string;
 };
 
 export type CaseGroup = {
@@ -419,6 +433,91 @@ export const deepHealth: {
   ],
   also:
     "Roles decide who sees the workspace and who can publish to the public site — a visitor, a lab member, and an admin each get a different door through the same front.",
+};
+
+export const cubicle: {
+  name: string;
+  tagline: string;
+  site: string;
+  repo: string;
+  groups: CaseGroup[];
+  also: string;
+} = {
+  name: "Cubicle",
+  tagline:
+    "Serverless is wonderful until you read the bill, or notice your data now lives on someone else's continent. Cubicle is the same convenience — write a function, press deploy, get a URL — running on hardware you already own.",
+  site: "https://cubicle.shagato.space",
+  repo: "https://github.com/clickTwice26/cubicle",
+  groups: [
+    {
+      label: "the platform",
+      projects: [
+        {
+          name: "The console",
+          tag: "open source · Apache-2.0",
+          embed: "https://cubicle.shagato.space",
+          frameable: false, // X-Frame-Options: DENY
+          shot: "/shots/cubicle-landing.png",
+          desc: "One command, and the platform is yours.",
+          detail:
+            "Clone it, run the installer, and it builds the images, generates every secret, starts the stack and prints a console URL. Point a domain at the machine and it gets a certificate on its own. There is no registration anywhere in the product — you set an administrator password on first run and that is the only credential the instance has. Nothing calls home.",
+        },
+        {
+          name: "Writing and running functions",
+          tag: "Python · JavaScript",
+          shot: "/shots/cubicle-console.png",
+          desc: "Write a handler, press deploy, get a URL.",
+          detail:
+            "A real editor in the browser, versioned deploys you can roll back to, and a test console that runs the function on the actual cluster rather than a simulation. One configuration store per cluster is resolved when the function runs, so changing a value needs no redeploy. Logs and control-plane events stream live, and the dashboard counts real invocations rather than samples.",
+        },
+        {
+          name: "The documentation",
+          tag: "for whoever runs it",
+          embed: "https://cubicle.shagato.space/docs",
+          frameable: false,
+          shot: "/shots/cubicle-docs.png",
+          desc: "Everything needed to run it without me.",
+          detail:
+            "Install, the handler contract, secrets and config, clusters and access control, the managed databases, operations, and the security model — plus the findings of a source review with what was done about them. Written so a stranger can adopt the thing, which is the difference between open source and code you can read.",
+        },
+      ],
+    },
+    {
+      label: "underneath",
+      projects: [
+        {
+          name: "Clusters",
+          tag: "isolation",
+          desc: "Production and staging on one box, sharing nothing.",
+          detail:
+            "An instance holds several clusters, and each owns its namespaces, functions, config, databases and metrics — so two of them can both have a payments namespace without colliding. Every URL names its cluster, either by its own hostname or by a slug in the path; there is deliberately no unqualified form, because a default would quietly change what an existing URL pointed at the day someone changed the default.",
+        },
+        {
+          name: "Databases on demand",
+          tag: "PostgreSQL · Redis",
+          desc: "No credentials to copy anywhere.",
+          detail:
+            "Ask for a database and it is provisioned on the cluster and wired into every function automatically. A browser for the managed PostgreSQL comes with it — tables, paginated rows with search and sorting, a row editor and a SQL console — so routine work does not mean opening a separate tool.",
+        },
+        {
+          name: "The command line",
+          tag: "Python · tested",
+          desc: "The whole platform without the browser.",
+          detail:
+            "Deploy, tail logs, manage instances, schedules, runtimes and the package marketplace from a terminal, so any of it drops into a script or a pipeline. It carries a real test suite — the part of a side project that usually gets skipped.",
+        },
+        {
+          name: "What it costs",
+          tag: "metering",
+          desc: "Told honestly, including the comparison.",
+          detail:
+            "Node capacity and allocation, GB-seconds, measured egress, and chargeback per namespace — next to what the same usage would have cost at public list prices. Being able to see that number is most of the argument for running it yourself.",
+        },
+      ],
+    },
+  ],
+  also:
+    "Apache-2.0, and built to be handed over: the installer is safe to re-run, secrets are never rotated behind your back, and every screen has a page in the docs.",
 };
 
 export const socials: { label: string; href: string; handle: string }[] = [
