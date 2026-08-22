@@ -15,8 +15,7 @@ const githubUsername = socials
   .find((s) => s.label === "GitHub")
   ?.handle.replace("@", "");
 
-const linkClass =
-  "underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent";
+const linkClass = "pencil-link";
 
 export default function Home() {
   return (

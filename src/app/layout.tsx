@@ -21,12 +21,17 @@ export const metadata: Metadata = {
   },
 };
 
+import { CustomCursor } from "@/components/CustomCursor";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="min-h-dvh">{children}</body>
+      <body className="min-h-dvh">
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

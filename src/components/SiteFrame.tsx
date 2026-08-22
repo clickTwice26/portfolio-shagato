@@ -56,7 +56,7 @@ export function SiteFrame({
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-[13px] text-ink underline decoration-1 underline-offset-[3px] decoration-faint transition-colors hover:text-accent hover:decoration-accent"
+                className="pencil-link text-[13px] text-ink"
               >
                 open {domain} ↗
               </a>

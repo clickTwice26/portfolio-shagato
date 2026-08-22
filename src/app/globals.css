@@ -25,6 +25,27 @@
   --line: #d8d2c4;
   --accent: #b8341c;
   color-scheme: light;
+
+  /* ─────────────────────────────────────────────────────────────
+     Hand-drawn Uneven Pencil Underline SVGs
+     ───────────────────────────────────────────────────────────── */
+  /* Resting graphite pencil lines */
+  --pencil-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 16' preserveAspectRatio='none'%3E%3Cpath d='M2,9.5 C42,4.8 86,13.2 134,7.8 C178,4.2 224,12.5 266,6.8 C282,5.2 294,9 298,7.8' fill='none' stroke='%234a453c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6,10.8 C50,7.2 90,13.8 138,9.2 C182,5.8 228,12.8 270,8.2' fill='none' stroke='%236f6a5e' stroke-width='0.9' stroke-linecap='round' opacity='0.45'/%3E%3C/svg%3E");
+  
+  --pencil-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 16' preserveAspectRatio='none'%3E%3Cpath d='M2,7.2 C38,12.5 78,5.2 126,10.8 C170,14.2 216,6.8 258,9.8 C278,10.8 290,6.8 298,8.8' fill='none' stroke='%234a453c' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5,8.8 C42,13.5 82,6.8 128,11.8 C172,15.2 218,8.2 260,10.8' fill='none' stroke='%236f6a5e' stroke-width='0.8' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
+  
+  --pencil-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 16' preserveAspectRatio='none'%3E%3Cpath d='M2,8.5 C32,4.8 68,11.5 108,6.8 C152,3.8 198,12.5 242,6.2 C266,4.8 286,8.8 298,7.2' fill='none' stroke='%234a453c' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7,9.8 C36,6.2 72,11.8 112,7.8 C156,5.2 202,12.8 246,7.8' fill='none' stroke='%236f6a5e' stroke-width='0.85' stroke-linecap='round' opacity='0.45'/%3E%3C/svg%3E");
+  
+  --pencil-4: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 16' preserveAspectRatio='none'%3E%3Cpath d='M2,10.2 C56,6.2 102,12.8 156,7.2 C202,4.8 248,11.2 280,6.8 C290,5.8 295,8.8 298,7.8' fill='none' stroke='%234a453c' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5,11.2 C60,7.8 104,13.2 158,8.8 C204,6.2 250,11.8 282,8.2' fill='none' stroke='%236f6a5e' stroke-width='0.8' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
+
+  /* Active / drawn accent red pencil lines (on hover) */
+  --pencil-1-accent: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 16' preserveAspectRatio='none'%3E%3Cpath d='M2,9.5 C42,4.8 86,13.2 134,7.8 C178,4.2 224,12.5 266,6.8 C282,5.2 294,9 298,7.8' fill='none' stroke='%23b8341c' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6,10.8 C50,7.2 90,13.8 138,9.2 C182,5.8 228,12.8 270,8.2' fill='none' stroke='%23b8341c' stroke-width='1.1' stroke-linecap='round' opacity='0.6'/%3E%3C/svg%3E");
+  
+  --pencil-2-accent: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 16' preserveAspectRatio='none'%3E%3Cpath d='M2,7.2 C38,12.5 78,5.2 126,10.8 C170,14.2 216,6.8 258,9.8 C278,10.8 290,6.8 298,8.8' fill='none' stroke='%23b8341c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5,8.8 C42,13.5 82,6.8 128,11.8 C172,15.2 218,8.2 260,10.8' fill='none' stroke='%23b8341c' stroke-width='1.0' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E");
+  
+  --pencil-3-accent: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 16' preserveAspectRatio='none'%3E%3Cpath d='M2,8.5 C32,4.8 68,11.5 108,6.8 C152,3.8 198,12.5 242,6.2 C266,4.8 286,8.8 298,7.2' fill='none' stroke='%23b8341c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7,9.8 C36,6.2 72,11.8 112,7.8 C156,5.2 202,12.8 246,7.8' fill='none' stroke='%23b8341c' stroke-width='1.15' stroke-linecap='round' opacity='0.6'/%3E%3C/svg%3E");
+  
+  --pencil-4-accent: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 16' preserveAspectRatio='none'%3E%3Cpath d='M2,10.2 C56,6.2 102,12.8 156,7.2 C202,4.8 248,11.2 280,6.8 C290,5.8 295,8.8 298,7.8' fill='none' stroke='%23b8341c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M5,11.2 C60,7.8 104,13.2 158,8.8 C204,6.2 250,11.8 282,8.2' fill='none' stroke='%23b8341c' stroke-width='1.0' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E");
 }
 
 @theme inline {
@@ -82,3 +103,242 @@ body {
     animation: none;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Custom Animated Geometric Cursor (Non-round)
+   ───────────────────────────────────────────────────────────── */
+@media (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary,
+  [role="button"] {
+    cursor: none !important;
+  }
+}
+
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.dot-shape {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-ink);
+  transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 0 1px var(--color-bg);
+}
+
+.cursor-dot[data-hover="true"] .dot-shape {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 6px rgba(184, 52, 28, 0.4);
+}
+
+.cursor-dot[data-clicking="true"] .dot-shape {
+  background-color: var(--color-accent);
+}
+
+.cursor-follower {
+  width: 36px;
+  height: 36px;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.follower-shape {
+  width: 100%;
+  height: 100%;
+}
+
+.diamond-frame {
+  width: 24px;
+  height: 24px;
+  border: 1.25px solid var(--color-muted);
+  opacity: 0.55;
+  transition: border-color 0.25s ease,
+              background-color 0.25s ease,
+              width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease;
+}
+
+.cursor-follower[data-hover="true"] .diamond-frame {
+  width: 32px;
+  height: 32px;
+  border-color: var(--color-accent);
+  background-color: rgba(184, 52, 28, 0.07);
+  opacity: 1;
+}
+
+.cursor-follower[data-clicking="true"] .diamond-frame {
+  border-color: var(--color-accent);
+  background-color: rgba(184, 52, 28, 0.15);
+}
+
+/* Corner ticks for technical reticle aesthetic */
+.corner-tick {
+  position: absolute;
+  background-color: var(--color-faint);
+  opacity: 0.7;
+  transition: background-color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.corner-tick-top {
+  top: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 4px;
+}
+
+.corner-tick-bottom {
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 4px;
+}
+
+.corner-tick-left {
+  left: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 1px;
+}
+
+.corner-tick-right {
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 1px;
+}
+
+.cursor-follower[data-hover="true"] .corner-tick {
+  background-color: var(--color-accent);
+  opacity: 1;
+}
+
+.cursor-follower[data-hover="true"] .corner-tick-top {
+  transform: translateX(-50%) translateY(-2px);
+}
+.cursor-follower[data-hover="true"] .corner-tick-bottom {
+  transform: translateX(-50%) translateY(2px);
+}
+.cursor-follower[data-hover="true"] .corner-tick-left {
+  transform: translateY(-50%) translateX(-2px);
+}
+.cursor-follower[data-hover="true"] .corner-tick-right {
+  transform: translateY(-50%) translateX(2px);
+}
+
+/* Click ripple */
+.cursor-ripple {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes cursor-ripple-anim {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(3.5);
+    opacity: 0;
+    border-width: 0.5px;
+  }
+}
+
+.cursor-ripple-active {
+  animation: cursor-ripple-anim 0.45s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Hand-drawn Uneven Pencil Underline Styles
+   ───────────────────────────────────────────────────────────── */
+.pencil-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none !important;
+  transition: color 0.25s ease;
+  vertical-align: baseline;
+}
+
+/* Resting graphite pencil underline (uneven hand-drawn path) */
+.pencil-link::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -3px;
+  height: 8px;
+  background-image: var(--pencil-1);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.25s ease;
+}
+
+/* Active drawn accent red pencil line (animates on hover) */
+.pencil-link::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -3px;
+  height: 8px;
+  background-image: var(--pencil-1-accent);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
+}
+
+.pencil-link:hover {
+  color: var(--color-accent) !important;
+}
+
+.pencil-link:hover::after {
+  clip-path: inset(0 0% 0 0);
+}
+
+.pencil-link:hover::before {
+  opacity: 0.15;
+}
+
+/* Visual diversity: organic hand-drawn stroke variations across list items */
+li:nth-child(4n + 1) .pencil-link::before { background-image: var(--pencil-1); }
+li:nth-child(4n + 1) .pencil-link::after  { background-image: var(--pencil-1-accent); }
+
+li:nth-child(4n + 2) .pencil-link::before { background-image: var(--pencil-2); }
+li:nth-child(4n + 2) .pencil-link::after  { background-image: var(--pencil-2-accent); }
+
+li:nth-child(4n + 3) .pencil-link::before { background-image: var(--pencil-3); }
+li:nth-child(4n + 3) .pencil-link::after  { background-image: var(--pencil-3-accent); }
+
+li:nth-child(4n + 4) .pencil-link::before { background-image: var(--pencil-4); }
+li:nth-child(4n + 4) .pencil-link::after  { background-image: var(--pencil-4-accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pencil-link::after {
+    transition: none;
+  }
+}
+
+
