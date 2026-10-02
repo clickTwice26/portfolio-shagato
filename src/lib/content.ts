@@ -49,8 +49,8 @@ export const projects: Project[] = [
   {
     index: "01",
     title: "DIUKonnect",
-    blurb: "A DIU project.", // TODO: replace with a one-line description
-    year: "2026", // TODO: confirm year
+    blurb: "The verified network for Daffodilians.",
+    year: "2026",
     href: "/diu-konnect",
   },
   {
@@ -641,3 +641,66 @@ export const socials: { label: string; href: string; handle: string }[] = [
     handle: "in/shagato-chowdhury",
   },
 ];
+
+export const diuKonnect: {
+  name: string;
+  tagline: string;
+  site: string;
+  groups: CaseGroup[];
+  also: string;
+} = {
+  name: "DIUKonnect",
+  tagline:
+    "Graduates scatter — across Dhaka, Toronto, Munich — and the batch group chat goes quiet. DIUKonnect is the professional network for Daffodilians: reconnect with your batch, find jobs through alumni, and get advice from seniors.",
+  site: "https://diukonnect.shagato.space/",
+  groups: [
+    {
+      label: "the network",
+      projects: [
+        {
+          name: "The public site",
+          tag: "for graduates, students, faculty",
+          embed: "https://diukonnect.shagato.space/",
+          desc: "The front door to the community.",
+          detail:
+            "Everything the network does, in one page: a feed of posts from verified alumni, a searchable member directory, jobs, mentorship, events and groups. Joining takes a few minutes with any email address, and the account stays yours after you graduate.",
+        },
+        {
+          name: "People and jobs",
+          tag: "directory · referrals",
+          desc: "Find the right people, then ask them.",
+          detail:
+            "Search verified members by department, batch, company, city or skill, and see who is open to referrals, mentoring or hiring. Jobs are posted by alumni, faculty and staff; ask a Daffodilian at the company to refer you with your CV and a note, and follow the request from sent to seen to referred.",
+        },
+        {
+          name: "Mentorship and events",
+          tag: "office hours · reunions",
+          desc: "Advice from seniors, reasons to meet up.",
+          detail:
+            "Book short video sessions in a mentor's office hours for career planning, CV reviews, higher studies, IELTS or moving abroad. Reunions, meetups, talks and workshops can be RSVP'd, added to a calendar and checked into at the door.",
+        },
+        {
+          name: "Talking to each other",
+          tag: "posts · groups · messages",
+          desc: "A social layer, not just a directory.",
+          detail:
+            "Posts and polls with control over who can see and reply, batch and department groups that are ready when you join, one-to-one and group messages (people you don't follow arrive as a request first), and longer articles about your work, research or path.",
+        },
+      ],
+    },
+    {
+      label: "trust",
+      projects: [
+        {
+          name: "Verification",
+          tag: "three ways in",
+          desc: "Everyone you meet here is verified.",
+          detail:
+            "Only verified members can post, comment, message and search the directory. You verify once: with a 6-digit code sent to your @diu.edu.bd address, by uploading a student ID, certificate or transcript for a moderator to check, or by two verified alumni vouching for you. Email, phone and blood group are private until you choose who sees them, and nobody else sees your documents.",
+        },
+      ],
+    },
+  ],
+  also:
+    "DIUKonnect is an independent community project by and for Daffodilians — it isn't an official service of Daffodil International University.",
+};
