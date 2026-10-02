@@ -48,10 +48,10 @@ export const experience: Project[] = [
 export const projects: Project[] = [
   {
     index: "01",
-    title: "RoboJourney",
-    blurb: "Arduino simulator that runs the electricity.",
-    year: "2026",
-    href: "/robo-journey",
+    title: "DIUKonnect",
+    blurb: "A DIU project.", // TODO: replace with a one-line description
+    year: "2026", // TODO: confirm year
+    href: "/diu-konnect",
   },
   {
     index: "02",
@@ -62,20 +62,27 @@ export const projects: Project[] = [
   },
   {
     index: "03",
+    title: "RoboJourney",
+    blurb: "Arduino simulator that runs the electricity.",
+    year: "2026",
+    href: "/robo-journey",
+  },
+  {
+    index: "04",
     title: "TypeTrek",
     blurb: "Typing contests, live leaderboards.",
     year: "2025–2026",
     href: "/typetrek",
   },
   {
-    index: "04",
+    index: "05",
     title: "DIU CPC",
     blurb: "Computer Programming Club of DIU.",
     year: "2026",
     href: "/diu-cpc",
   },
   {
-    index: "05",
+    index: "06",
     title: "DeepHealthLab",
     blurb: "Health research lab.",
     year: "2025",
